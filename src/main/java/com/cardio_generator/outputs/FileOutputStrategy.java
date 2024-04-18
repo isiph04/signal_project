@@ -17,7 +17,7 @@ public class FileOutputStrategy implements OutputStrategy {
 
     public FileOutputStrategy(String baseDirectory) {
 
-        this.baseDirectory = baseDirectory; // renamed member variable to lowerCamelCase BaseDirectory to baseDirectory
+        this.baseDirectory = baseDirectory; // renamed member variable basedirectory to lowerCamelCase BaseDirectory to baseDirectory
     }
 
     @Override

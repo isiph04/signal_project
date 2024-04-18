@@ -8,7 +8,7 @@ public class AlertGenerator implements PatientDataGenerator {
 
     public static final Random randomGenerator = new Random();
     private final boolean[] alertStates; // false = resolved, true = pressed
-    // AlertStates to alertStates --> lowerCamelCase
+    // AlertStates to alertStates to lowerCamelCase
 
 
     public AlertGenerator(int patientCount) {
