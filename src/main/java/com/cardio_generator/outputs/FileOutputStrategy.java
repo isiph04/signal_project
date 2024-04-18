@@ -7,28 +7,30 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class fileOutputStrategy implements OutputStrategy {
+public class FileOutputStrategy implements OutputStrategy {
+    // renamed class to UpperCamelCase
+    // renamed the file to match the class
 
-    private String BaseDirectory;
+    private String baseDirectory; // renamed member variable to lowerCamelCase BaseDirectory to baseDirectory
 
-    public final ConcurrentHashMap<String, String> file_map = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<String, String> fileMap = new ConcurrentHashMap<>(); // changed file_map to fileMap as lowerCamelCase
 
-    public fileOutputStrategy(String baseDirectory) {
+    public FileOutputStrategy(String baseDirectory) {
 
-        this.BaseDirectory = baseDirectory;
+        this.baseDirectory = baseDirectory; // renamed member variable to lowerCamelCase BaseDirectory to baseDirectory
     }
 
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
         try {
             // Create the directory
-            Files.createDirectories(Paths.get(BaseDirectory));
+            Files.createDirectories(Paths.get(baseDirectory)); // renamed member variable to lowerCamelCase
         } catch (IOException e) {
             System.err.println("Error creating base directory: " + e.getMessage());
             return;
         }
         // Set the FilePath variable
-        String FilePath = file_map.computeIfAbsent(label, k -> Paths.get(BaseDirectory, label + ".txt").toString());
+        String FilePath = fileMap.computeIfAbsent(label, k -> Paths.get(baseDirectory, label + ".txt").toString()); // renamed member variables to lowerCamelCase
 
         // Write the data to the file
         try (PrintWriter out = new PrintWriter(
