@@ -67,3 +67,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Project Members 
 Student ID: i6347846
 Student ID: i6318653
+
+## Week 2 Project 
+[UML Diagrams](uml_diagrams)
