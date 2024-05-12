@@ -62,6 +62,9 @@ public class AlertGenerator {
         thresholdAlert(patientRecordList, outputStrategy);
         lowSaturationAlert(patientRecordList, outputStrategy);
         rapidDropAlert(patientRecordList, outputStrategy);
+        hypotensiveHypoxemiaAlert(patientRecordList, outputStrategy);
+        abnormalHeartRateAlert(patientRecordList, outputStrategy);
+        irregularBeatAlert(patientRecordList, outputStrategy);
     }
 
 
