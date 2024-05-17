@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.File;
+import java.net.URI;
 
 public class FileDataReader implements DataReader
 {
@@ -51,9 +52,18 @@ public class FileDataReader implements DataReader
                 }
             }
         }
-
-
-
     }
+
+        @Override
+        public void connect(URI serverUri) throws IOException
+        {
+            //returns nothing
+        }
+
+        @Override
+        public void onMessage(String message)
+        {
+            //returns nothing
+        }
 
 }
