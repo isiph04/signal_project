@@ -1,10 +1,13 @@
 package com.data_management;
 
+import com.alerts.AlertGenerator;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import com.alerts.AlertGenerator;
+import java.util.concurrent.ConcurrentHashMap;
+
 
 /**
  * Manages storage and retrieval of patient data within a healthcare monitoring
@@ -14,13 +17,27 @@ import com.alerts.AlertGenerator;
  */
 public class DataStorage {
     private Map<Integer, Patient> patientMap; // Stores patient objects indexed by their unique patient ID.
-
+    private Map<Integer, List<PatientRecord>> patientsRecords;
     /**
      * Constructs a new instance of DataStorage, initializing the underlying storage
      * structure.
      */
     public DataStorage() {
         this.patientMap = new HashMap<>();
+        patientsRecords = new ConcurrentHashMap<>();
+    }
+
+    public void updatePatientRecord(PatientRecord record)
+    {
+        patientsRecords.compute(record.getPatientId(), (key, value) -> {
+            if (value == null)
+            {
+                value = new ArrayList<>();
+            }
+            value.add(record);
+            return value;
+        });
+
     }
 
     /**
@@ -43,6 +60,11 @@ public class DataStorage {
             patientMap.put(patientId, patient);
         }
         patient.addRecord(measurementValue, recordType, timestamp);
+    }
+
+    public List<PatientRecord> getPatientRecords(int patientId)
+    {
+        return patientsRecords.get(patientId);
     }
 
     /**
