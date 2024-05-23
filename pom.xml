@@ -69,7 +69,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.cardio_generator.HealthDataSimulator</mainClass>
+                    <mainClass>Main.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>
