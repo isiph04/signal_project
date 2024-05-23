@@ -15,11 +15,9 @@ public class Alert {
     public String getPatientId() {
         return patientId;
     }
-
     public String getCondition() {
         return condition;
     }
-
     public long getTimestamp() {
         return timestamp;
     }
