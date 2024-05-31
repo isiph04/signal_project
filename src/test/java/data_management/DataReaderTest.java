@@ -53,7 +53,7 @@ public class DataReaderTest {
 
     @Test
     public void testConnect_InvalidURI() {
-        // Test the data reader with an invalid URI
+        // Test the data reader with an invalid URI.
         assertThrows(URISyntaxException.class, () -> {
             URI invalidUri = new URI("invalid uri");
         });

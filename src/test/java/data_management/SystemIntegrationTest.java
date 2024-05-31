@@ -21,7 +21,7 @@ public class SystemIntegrationTest {
 
     @BeforeEach
     public void setup() throws URISyntaxException {
-        // Initialize the client, data storage, and alert strategy
+        // Initialize the client, data storage, and alert strategy.
         MockitoAnnotations.openMocks(this);
         client = new dataWebSocketClient(new URI("ws://localhost:8887"));
         dataStorage = new DataStorage();

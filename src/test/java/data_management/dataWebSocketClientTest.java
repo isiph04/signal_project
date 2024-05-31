@@ -41,7 +41,7 @@ public class dataWebSocketClientTest {
 
     @Test
     public void testOnError_NetworkError() {
-        // Test the client with a network error
+        // Test the client with a network error.
         Exception exception = new Exception("Network error");
         client.onError(exception);
 
