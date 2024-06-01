@@ -18,6 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class DataStorage {
     private Map<Integer, Patient> patientMap; // Stores patient objects indexed by their unique patient ID.
     private Map<Integer, List<PatientRecord>> patientsRecords;
+    private static DataStorage instance;
     /**
      * Constructs a new instance of DataStorage, initializing the underlying storage
      * structure.
@@ -25,6 +26,13 @@ public class DataStorage {
     public DataStorage() {
         this.patientMap = new HashMap<>();
         patientsRecords = new ConcurrentHashMap<>();
+    }
+
+    public static DataStorage getInstance() {
+        if (instance == null) {
+            instance = new DataStorage();
+        }
+        return instance;
     }
 
     public void updatePatientRecord(PatientRecord record)
